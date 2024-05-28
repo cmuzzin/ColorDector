@@ -1,0 +1,57 @@
+<ion-card color="light">
+  <div class="swatch" [style.background-color]="selectedSwatch?.hex" (click)="openModal(color.palette)"></div>
+  @if(selectedSwatch) {
+    <ion-card-content>
+      <ion-item color="light" slot="header">
+        <ion-label>
+          <h1>{{selectedSwatch.hex}}</h1>
+        </ion-label>
+        <ion-button color="dark" fill="clear" slot="end">
+          <ion-icon slot="icon-only" name="copy"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-accordion-group color="light">
+        <ion-accordion value="second">
+          <ion-item color="light" slot="header">
+            <ion-label>
+              <h2 class="bold">RGB</h2>
+            </ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item color="light">
+              <ion-label>
+                <h3>{{selectedSwatch.r}}</h3>
+                <h3>{{selectedSwatch.g}}</h3>
+                <h3>{{selectedSwatch.b}}</h3>
+              </ion-label>
+              <ion-button color="dark" fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="copy"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="third">
+          <ion-item color="light" slot="header">
+            <ion-label>
+              <h2 class="bold">HSL</h2>
+            </ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item color="light">
+              <ion-label>
+                <h3>{{selectedSwatch.hsl[0]}}</h3>
+                <h3>{{selectedSwatch.hsl[1]}}</h3>
+                <h3>{{selectedSwatch.hsl[2]}}</h3>
+              </ion-label>
+              <ion-button color="dark" fill="clear" slot="end">
+                <ion-icon slot="icon-only" name="copy"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  }
+  <!-- <ion-button class="ion-float-end ion-margin-vertical ion-margin-horizontal" color="success" fill="outline" (click)="saveColor(color)">Save</ion-button>
+  <ion-button class="ion-float-end ion-margin-vertical" color="danger" fill="outline">Delete</ion-button> -->
+</ion-card>

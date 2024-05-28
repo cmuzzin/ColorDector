@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h1>Select a swatch</h1>
+  @if(palette) {
+    <ion-grid>
+      <ion-row>
+        @for(swatch of swatches; track $index) {
+        <ion-col size="6" size-sm="4">
+            <ion-card>
+              <div class="swatch" [style.background-color]="swatch?.hex" (click)="select(swatch)"></div>
+            </ion-card>
+        </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  }
+</ion-content>
